@@ -45,3 +45,23 @@ function d100Roll()
   let result = Math.floor(Math.random() * 100) +1;
   return result;
 }
+
+//Function to roll a non-standard die type. Needs to be passed (max+1)?
+function dXRoll(high)
+{
+  let result = Math.floor(Math.random() * high) + 1;
+  return result;
+}
+
+//Function to check whether or not a given roll(skill check, caster check, etc.) and bonuses(passed in) beat the dc.
+function checkRoll(dc, bonuses)
+{
+  let baseRoll = d20Roll();
+  if(baseRoll + bonuses >= dc)
+    return true;
+  else if(baseRoll === 20)
+    return true;
+  else
+    return false;
+}
+
