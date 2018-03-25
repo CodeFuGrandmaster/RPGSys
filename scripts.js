@@ -54,14 +54,13 @@ function dXRoll(high)
 }
 
 //Function to check whether or not a given roll(skill check, caster check, etc.) and bonuses(passed in) beat the dc.
-function checkRoll(dc, bonuses)
+function checkRoll(dc, roll, bonuses)
 {
-  let baseRoll = d20Roll();
-  if(baseRoll + bonuses >= dc)
-    return true;
-  else if(baseRoll === 20)
-    return true;
+  if((roll + bonuses) === dc)
+    return 0;
+  else if(roll === 20)
+    return 99;
   else
-    return false;
+    return (dc - (roll + bonuses));
 }
 
