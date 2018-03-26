@@ -46,21 +46,22 @@ function d100Roll()
   return result;
 }
 
-//Function to roll a non-standard die type. Needs to be passed (max+1)?
+//Function to roll a non-standard die type. Needs to be passed (max+1)? For whatever reason...
 function dXRoll(high)
 {
   let result = Math.floor(Math.random() * high) + 1;
   return result;
 }
 
-//Function to check whether or not a given roll(skill check, caster check, etc.) and bonuses(passed in) beat the dc.
-function checkRoll(dc, roll, bonuses)
+//Function that returns 99 on a roll of natural 20, or the difference between the dc and the roll (including bonuses and penalties)
+function checkRoll(dc, roll, rollAdjustment)
 {
-  if((roll + bonuses) === dc)
+  if((roll + rollAdjustment) === dc)
     return 0;
   else if(roll === 20)
     return 99;
   else
-    return (dc - (roll + bonuses));
+    return (dc - (roll + rollAdjustment));
 }
+
 
